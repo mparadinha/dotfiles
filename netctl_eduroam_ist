@@ -1,0 +1,15 @@
+Description='Eduroam for IST'
+Interface=<INTERFACE_NAME>
+Connection=wireless
+Security=wpa-configsection
+IP=dhcp
+WPAConfigSection=(
+    'ssid="eduroam"'
+    'key_mgmt=WPA-EAP'
+    'eap=TTLS'
+    'identity="<IST_ID>@tecnico.ulisboa.pt"'
+    'password="<IST_PASSWORD>"'
+    'priority=1'
+    'phase2="auth=PAP"'
+)
+
