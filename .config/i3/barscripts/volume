@@ -1,0 +1,10 @@
+#!/bin/bash
+
+amixer_out=$(amixer get Master | grep -Eo '[0-9]{1,3}%')
+mute=$(amixer get Master | grep -Eo '\bon\b|\boff\b')
+
+if [ "$mute" = "off" ]; then
+    echo "Volume: $amixer_out, Mutted"
+else
+    echo "Volume: $amixer_out"
+fi

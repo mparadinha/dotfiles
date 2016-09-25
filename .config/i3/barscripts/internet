@@ -1,0 +1,10 @@
+#!/bin/bash
+
+all_profiles=$(netctl list | grep '\*' | grep -Eo '[a-zA-Z-]+')
+
+if [[ $all_profiles ]]; then
+    echo "Wifi: $all_profiles"
+else
+    echo "Wifi: No connection"
+fi
+
