@@ -9,6 +9,23 @@
 #
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
+# them gaps yo!
+# these are the default gap distances in pixels
+# if both are at 0 its like the normal i3
+# mode to switch gaps on. set the gap value and return to default mode
+mode "enable_gaps" {
+    bindsym Return gaps inner all set 8, gaps outer all set 8, mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+g mode "enable_gaps"
+
+# similar to above but to disable gaps
+mode "disable_gaps" {
+    bindsym Return gaps inner all set 0, gaps outer all set 0, mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+Shift+g mode "disable_gaps"
+
 # make all windows (containers) show up with no borders
 for_window [class="^.*"] border pixel 1
 
@@ -40,7 +57,7 @@ focus_follows_mouse no
 
 # start a terminal
 bindsym $mod+Return exec termite
-#bindsym $mod+Return exec i3-sensible-terminal
+#bindsym $mod+Shift+Return exec i3-sensible-terminal
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -93,7 +110,7 @@ bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
-floating_minimum_size 850 x 470
+floating_minimum_size 900 x 470
 floating_maximum_size -1 x -1
 
 # change focus between tiling / floating windows
