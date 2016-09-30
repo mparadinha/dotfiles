@@ -12,19 +12,9 @@
 # them gaps yo!
 # these are the default gap distances in pixels
 # if both are at 0 its like the normal i3
-# mode to switch gaps on. set the gap value and return to default mode
-mode "enable_gaps" {
-    bindsym Return gaps inner all set 8, gaps outer all set 8, mode "default"
-    bindsym Escape mode "default"
-}
-bindsym $mod+g mode "enable_gaps"
-
-# similar to above but to disable gaps
-mode "disable_gaps" {
-    bindsym Return gaps inner all set 0, gaps outer all set 0, mode "default"
-    bindsym Escape mode "default"
-}
-bindsym $mod+Shift+g mode "disable_gaps"
+# switch to gaps or no gaps
+bindsym $mod+g gaps inner all set 8, gaps outer all set 8
+bindsym $mod+Shift+g gaps inner all set 0, gaps outer all set 0
 
 # make all windows (containers) show up with no borders
 for_window [class="^.*"] border pixel 1
