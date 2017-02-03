@@ -13,9 +13,9 @@ if [ "$status0" = "Charging" ] || [ "$status1" = "Charging" ]; then
     echo -e "\uf240: $avg%, charging"
 else
     if [ "$status0" = "Discharging" ] || [ "$status1" = "Discharging" ]; then
-        echo -e "\uf240: $avg%, dying :("
+        echo -e "\uf240: $avg%, dying"
     else
-        echo -e "\uf240: 100% :D"
+        echo -e "\uf240: 100%"
     fi
 fi
 

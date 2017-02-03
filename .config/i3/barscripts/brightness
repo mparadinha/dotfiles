@@ -5,5 +5,5 @@ actual_value=$(xbacklight -get)
 # need to round the number python FTW
 number=$(python -c "print(round($actual_value))")
 
-echo "Brightness: $number%"
+echo -e "\uf042: $number%"
 
