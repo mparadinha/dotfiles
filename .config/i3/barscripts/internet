@@ -3,8 +3,8 @@
 all_profiles=$(netctl list | grep '\*' | grep -Eo '[a-zA-Z-]+')
 
 if [[ $all_profiles ]]; then
-    echo "Wifi: $all_profiles"
+    echo -e "\uf1eb  $all_profiles"
 else
-    echo "Wifi: No connection"
+    echo -e "\uf1eb  No connection"
 fi
 

@@ -10,12 +10,12 @@ status0=$(acpi -b | grep 'Battery 0' | grep -Eo '[a-zA-Z]*,' | grep -Eo '[a-zA-Z
 status1=$(acpi -b | grep 'Battery 1' | grep -Eo '[a-zA-Z]*,' | grep -Eo '[a-zA-Z]*')
 
 if [ "$status0" = "Charging" ] || [ "$status1" = "Charging" ]; then
-    echo "Battery: $avg%, Charging"
+    echo -e "\uf240: $avg%, charging"
 else
     if [ "$status0" = "Discharging" ] || [ "$status1" = "Discharging" ]; then
-        echo "Battery: $avg%, Discharging"
+        echo -e "\uf240: $avg%, dying :("
     else
-        echo "Battery: 100%"
+        echo -e "\uf240: 100% :D"
     fi
 fi
 
