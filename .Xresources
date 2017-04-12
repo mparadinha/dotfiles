@@ -1,17 +1,3 @@
-! ------------------------------------------------------------------------------
-! rofi color scheme: light greyish blueish ugly TM
-! ------------------------------------------------------------------------------
-!rofi.color-enabled: true
-!                     bg     border  separator
-!rofi.color-window: #273238, #273238, #1e2529
-!       state        bg        fg     bgalt     hlbg     hlfg
-!rofi.color-normal: #273238, #c1c1c1, #273238, #394249, #ffffff
-!rofi.color-active: #273238, #80cbc4, #273238, #394249, #80cbc4
-!rofi.color-urgent: #273238, #ff1844, #273238, #394249, #ff1844
-
-! ------------------------------------------------------------------------------
-! rofi color scheme: brownish greyish
-! ------------------------------------------------------------------------------
 rofi.color-enabled: true
 rofi.fixed-num-lines: true
 rofi.cycle: false
@@ -30,3 +16,30 @@ rofi.padding: 4
 rofi.color-window: #c8c4bb, #807a6e, #a19f96
 ! color: even lines bar, non chosen text, odd lines bar, chosen bar, chosen text
 rofi.color-normal: #c8c4bb, #000000, #c8c4bb, #e5e2da, #000000
+
+! --------------------------- other shit -------------------------
+
+URxvt.clipboard.autocopy: True
+URxvt.scrollBar: false
+URxvt*foreground: grey
+URxvt*background: black
+
+URxvt.font: xft:DejaVu Sans Mono:size=11
+!URxvt.letterSpace: -1
+
+
+
+! ------------------------------------------------------------------------------
+! rofi color scheme: light greyish blueish ugly TM
+! ------------------------------------------------------------------------------
+!rofi.color-enabled: true
+!                     bg     border  separator
+!rofi.color-window: #273238, #273238, #1e2529
+!       state        bg        fg     bgalt     hlbg     hlfg
+!rofi.color-normal: #273238, #c1c1c1, #273238, #394249, #ffffff
+!rofi.color-active: #273238, #80cbc4, #273238, #394249, #80cbc4
+!rofi.color-urgent: #273238, #ff1844, #273238, #394249, #ff1844
+
+! ------------------------------------------------------------------------------
+! rofi color scheme: brownish greyish
+! ------------------------------------------------------------------------------

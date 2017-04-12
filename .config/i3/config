@@ -21,7 +21,9 @@ bindsym $mod+Shift+g gaps inner all set 0, gaps outer all set 0
 for_window [class="^.*"] border pixel 2
 
 # make the terminal pop up in floating mode
-for_window [class="Termite"] floating enable, resize set 750 450, move position center
+#for_window [class="Termite"] floating enable, resize set 750 450, move position center
+#for_window [class="Termite"] floating enable, move position center
+for_window [class="URxvt"] floating enable, move position center
 
 set $mod Mod4
 
@@ -47,7 +49,7 @@ floating_modifier $mod
 focus_follows_mouse no
 
 # start a terminal
-bindsym $mod+Return exec termite
+bindsym $mod+Return exec urxvt
 #bindsym $mod+Shift+Return exec i3-sensible-terminal
 
 # kill focused window
@@ -102,7 +104,7 @@ bindsym $mod+e layout toggle split
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
 #floating_minimum_size 900 x 470
-floating_maximum_size -1 x -1
+#floating_maximum_size -1 x -1
 
 # change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle

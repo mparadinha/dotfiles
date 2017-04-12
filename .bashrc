@@ -33,4 +33,4 @@ alias pls='sudo $(history -p !!)'
 alias pretty-log="git log --graph --oneline"
 
 alias net-change="sudo netctl stop-all && sudo netctl start"
-alias getip="echo $(curl -s canihazip.com/s)"
+alias getip="curl -s canihazip.com/s; printf '\n'"
