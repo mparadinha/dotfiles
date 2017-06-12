@@ -9,9 +9,10 @@
 alias ls='ls --color=auto --group-directories-first'
 alias ll='ls -lh --group-directories-first'
 alias cls='clear && pwd && ll'
-alias lsize='du -sch .[!.]* * | sort -h'
 PS1='[\u@\h \W]\$ '
 
+# muh' bloat measuring
+alias lsize='du -sch .[!.]* * | sort -h'
 alias df="df -h"
 alias pacgraph="pacgraph -s" # only produce the svg
 # print top $1 packages ($1 is first argument after command)
@@ -41,6 +42,8 @@ alias pls='sudo $(history -p !!)'
 
 # to lazy to type this to get pretty commit logs from git
 alias pretty-log="git log --graph --oneline"
+
+alias dd="dd --status=progress"
 
 alias net-change="sudo netctl stop-all && sudo netctl start"
 alias net-start="sudo netctl start"
