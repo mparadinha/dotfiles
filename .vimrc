@@ -1,5 +1,5 @@
 syntax on
-"colorscheme default
+"colorscheme benokai
 "colorscheme falcon
 
 "enable syntax highligthing for vulkan keywords
@@ -7,6 +7,8 @@ autocmd FileType cpp,c source ~/.vim/syntax/vulkan1.0.vim
 
 "show existing tabs with 4 spaces width
 set tabstop=4
+"when new line keep same indentation
+set autoindent
 
 set shiftwidth=4
 set softtabstop=4
@@ -24,9 +26,12 @@ execute pathogen#infect()
 
 "show line numbers
 set number
+"enable mouse usage
+set mouse=a
+
 "something something, this was on the README for vim-airline "set laststatus=2
 "set the fonts for the special symbols used in vim-airline
-"let g:airline_powerline_fonts=1
+let g:airline_powerline_fonts = 1
 
 "because of delay between insert and normal mode
 "set ttimeoutlen=50
