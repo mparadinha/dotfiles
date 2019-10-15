@@ -2,8 +2,14 @@ syntax on
 "colorscheme benokai
 "colorscheme falcon
 
+vmap <C-c> "+y
+
+set hlsearch
+
 "enable syntax highligthing for vulkan keywords
 autocmd FileType cpp,c source ~/.vim/syntax/vulkan1.0.vim
+"extra c, cpp syntax (like u8, u64, etc. types)
+"autocmd FileType cpp,c source ~/.vim/syntax/extra_c_types.vim
 
 "show existing tabs with 4 spaces width
 set tabstop=4
@@ -53,18 +59,26 @@ endfun
 noremap <C-h> :tabprevious<CR>
 noremap <C-l> :tabnext<CR>
 
-"is nice for running python scripts
 fun! Run()
-    silent !python % 
+    let extension = expand('%:e')
+    if extension == 'tex'
+        silent !pdflatex % -synctex=1
+    elseif extension == 'py'
+        silent !python % 
+    elseif extension == 'c'
+        silent !make
+    endif
     redraw!
 endfun
 map <F5> :call Run() <return>
-"make is very hard to write
-map <F6> :silent !make <return>
 
 "for shorter messages when running external command
 :set shortmess=a
 
 "auto compile latex file when write to disk
-autocmd BufWritePost *.tex Dispatch! latexmk -pdf %
+"autocmd BufWritePost *.tex Dispatch! latexmk -pdf %
+"autocmd BufWritePost *.tex Dispatch! pdflatex % -synctex=1
 let g:tex_flavor="latex"
+
+"disable auto formating on save (for zig files)
+let g:zig_fmt_autosave = 0
