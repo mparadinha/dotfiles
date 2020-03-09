@@ -1,6 +1,13 @@
 syntax on
+"colorscheme jblow
 "colorscheme benokai
 "colorscheme falcon
+
+let mapleader = "-"
+
+" reload (source) this config file while editing another one, so I don't
+"have to restart vim
+nnoremap <leader>sv :source $MYVIMRC<cr>
 
 vmap <C-c> "+y
 
@@ -60,9 +67,11 @@ noremap <C-h> :tabprevious<CR>
 noremap <C-l> :tabnext<CR>
 
 fun! Run()
+    write
     let extension = expand('%:e')
     if extension == 'tex'
         silent !pdflatex % -synctex=1
+        silent !rm *.aux *.log
     elseif extension == 'py'
         silent !python % 
     elseif extension == 'c'
@@ -75,10 +84,28 @@ map <F5> :call Run() <return>
 "for shorter messages when running external command
 :set shortmess=a
 
-"auto compile latex file when write to disk
-"autocmd BufWritePost *.tex Dispatch! latexmk -pdf %
-"autocmd BufWritePost *.tex Dispatch! pdflatex % -synctex=1
 let g:tex_flavor="latex"
 
 "disable auto formating on save (for zig files)
 let g:zig_fmt_autosave = 0
+
+function RunClangFormat()
+    execute "silent !clang-format -i % -style=\"{
+        \ IndentWidth: 4,
+        \ SpaceAfterCStyleCast: true,
+        \ IndentPPDirectives: BeforeHash
+    \}\""
+    set nomodified
+    let save_cursor = getcurpos()
+    e
+    call setpos(".", save_cursor)
+    redraw!
+endfun
+
+" we need to wrap this autocmd in a command group that clears itself. this solves the
+" problem of having the command run multiple times when we source the multiple times
+" in the same session.
+augroup clang_format_group
+    autocmd!
+    autocmd BufWriteCmd *.c,*.h call RunClangFormat()
+augroup END
