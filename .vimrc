@@ -1,5 +1,4 @@
 syntax on
-"colorscheme jblow
 "colorscheme benokai
 "colorscheme falcon
 
@@ -33,9 +32,6 @@ set expandtab
 inoremap <S-Tab> <C-V><Tab>
 
 set encoding=utf-8
-
-"run pathogen plugin manager
-execute pathogen#infect()
 
 "show line numbers
 set number
@@ -87,7 +83,7 @@ map <F5> :call Run() <return>
 let g:tex_flavor="latex"
 
 "disable auto formating on save (for zig files)
-let g:zig_fmt_autosave = 0
+"let g:zig_fmt_autosave = 0
 
 function RunClangFormat()
     execute "silent !clang-format -i % -style=\"{
@@ -105,7 +101,7 @@ endfun
 " we need to wrap this autocmd in a command group that clears itself. this solves the
 " problem of having the command run multiple times when we source the multiple times
 " in the same session.
-augroup clang_format_group
-    autocmd!
-    autocmd BufWriteCmd *.c,*.h call RunClangFormat()
-augroup END
+"augroup clang_format_group
+"    autocmd!
+"    autocmd BufWriteCmd *.c,*.h call RunClangFormat()
+"augroup END
